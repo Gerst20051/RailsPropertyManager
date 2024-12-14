@@ -2,13 +2,9 @@
 
 ## Running Application
 
-`[$]> docker compose up`
+`[$]> bin/dev`
 
 `[$]> bin/rails db:setup`
-
-`[$]> bin/rails db:migrate`
-
-`[$]> bin/dev`
 
 http://127.0.0.1:3000
 
