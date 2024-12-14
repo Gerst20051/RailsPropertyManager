@@ -1,5 +1,17 @@
 # RailsPropertyManager
 
+## Running Application
+
+`[$]> docker compose up`
+
+`[$]> bin/rails db:setup`
+
+`[$]> bin/rails db:migrate`
+
+`[$]> bin/dev`
+
+http://127.0.0.1:3000
+
 ## Initial Project Creation Steps
 
 ### Set Ruby Version
@@ -19,3 +31,7 @@ Current Latest: `Ruby 3.3.6`
 ### Initialize Rails Application
 
 `[$]> rails new . -c tailwind -d mysql`
+
+### Setup Docker Compose (MySQL)
+
+`[$]> touch compose.yaml`
