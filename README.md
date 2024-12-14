@@ -36,4 +36,4 @@ Current Latest: `Ruby 3.3.6`
 
 `[$]> rails generate model Property address:string city:string state:string`
 
-`[$]> rails generate model Unit property:references bedroom_count:integer bathroom_count:integer square_footage:integer rent_price:decimal`
+`[$]> rails generate model Unit property:references bedroom_count:integer bathroom_count:integer square_footage:integer rent_price:decimal{'8,2'}`
