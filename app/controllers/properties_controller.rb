@@ -7,7 +7,7 @@ class PropertiesController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.json { render :json => @properties, include: :unit }
+      format.json { render json: @properties, include: :unit }
     end
   end
 
@@ -37,8 +37,13 @@ class PropertiesController < ApplicationController
   end
 
   def destroy
-    @property = Property.find(params[:id])
-    @property.destroy
+    @property = Property.find params[:id]
+    if @property.present?
+      @property.destroy
+      head :no_content
+    else
+      render status: :not_found
+    end
   end
 
   private

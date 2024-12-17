@@ -1,4 +1,6 @@
 class Property < ApplicationRecord
+  acts_as_paranoid
+
   has_many :unit, dependent: :destroy
 
   validates :address, presence: true

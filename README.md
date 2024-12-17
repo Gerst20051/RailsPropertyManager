@@ -8,6 +8,10 @@
 
 http://127.0.0.1:3000
 
+## Linting
+
+`[$]> be rubocop -a`
+
 ## Initial Project Creation Steps
 
 ### Set Ruby Version
@@ -43,3 +47,13 @@ Current Latest: `Ruby 3.3.6`
 `[#]> rails generate controller Properties`
 
 `[#]> rails generate controller Units`
+
+### Add Deleted At Field To Database Tables
+
+`[$]> bundle add acts_as_paranoid`
+
+`[$]> rails generate migration add_deleted_at_to_property deleted_at:datetime:index`
+
+`[$]> rails generate migration add_deleted_at_to_unit deleted_at:datetime:index`
+
+`[$]> rails db:migrate`

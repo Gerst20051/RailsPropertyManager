@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "properties#index"
 
-  resources :properties, only: [:index, :show, :create, :update, :destroy]
-  resources :units, only: [:index, :show, :create, :update, :destroy]
+  resources :properties, only: [ :index, :show, :create, :update, :destroy ]
+  resources :units, only: [ :index, :show, :create, :update, :destroy ]
 end

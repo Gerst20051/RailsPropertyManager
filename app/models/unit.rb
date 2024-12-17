@@ -1,4 +1,6 @@
 class Unit < ApplicationRecord
+  acts_as_paranoid
+
   belongs_to :property
 
   validates :bedroom_count, presence: true, numericality: { greater_than_or_equal_to: 0 }

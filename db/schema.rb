@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_12_14_234255) do
+ActiveRecord::Schema[8.0].define(version: 2024_12_17_074004) do
   create_table "properties", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "address"
     t.string "city"
     t.string "state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_properties_on_deleted_at"
   end
 
   create_table "units", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -27,6 +29,8 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_14_234255) do
     t.decimal "rent_price", precision: 8, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_units_on_deleted_at"
     t.index ["property_id"], name: "index_units_on_property_id"
   end
 
