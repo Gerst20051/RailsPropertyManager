@@ -7,3 +7,24 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+require 'faker'
+
+1000.times {
+  property = Property.create(
+    address: Faker::Address.street_address,
+    city: Faker::Address.city,
+    state: Faker::Address.state
+  )
+  if Faker::Boolean.boolean
+    Faker::Number.between(from: 1, to: 10).times {
+      Unit.create(
+        property_id: property.id,
+        bathroom_count: Faker::Number.between(from: 0, to: 6),
+        bedroom_count: Faker::Number.between(from: 0, to: 10),
+        rent_price: Faker::Number.between(from: 600, to: 5000),
+        square_footage: Faker::Number.between(from: 200, to: 1200),
+      )
+    }
+  end
+}

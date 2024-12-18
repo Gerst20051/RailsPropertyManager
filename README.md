@@ -57,3 +57,7 @@ Current Latest: `Ruby 3.3.6`
 `[$]> rails generate migration add_deleted_at_to_unit deleted_at:datetime:index`
 
 `[$]> rails db:migrate`
+
+### Install Faker Gem
+
+`[$]> bundle add faker`

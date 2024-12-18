@@ -65,3 +65,5 @@ group :test do
 end
 
 gem "acts_as_paranoid", "~> 0.10.3"
+
+gem "faker", "~> 3.5"
