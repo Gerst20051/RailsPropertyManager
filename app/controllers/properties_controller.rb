@@ -7,7 +7,7 @@ class PropertiesController < ApplicationController
 
     if @search.present?
       wildcard_search = "%#{@search}%"
-      @properties = Property.includes(:unit).where('address LIKE ? OR city LIKE ? OR state LIKE ?', wildcard_search, wildcard_search, wildcard_search)
+      @properties = Property.includes(:unit).where("address LIKE ? OR city LIKE ? OR state LIKE ?", wildcard_search, wildcard_search, wildcard_search)
     else
       @properties = Property.includes(:unit).all
     end
