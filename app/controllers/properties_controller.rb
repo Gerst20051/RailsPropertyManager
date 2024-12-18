@@ -3,7 +3,14 @@ class PropertiesController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    @properties = Property.includes(:unit).all
+    @search = params[:search]
+
+    if @search.present?
+      wildcard_search = "%#{@search}%"
+      @properties = Property.includes(:unit).where('address LIKE ? OR city LIKE ? OR state LIKE ?', wildcard_search, wildcard_search, wildcard_search)
+    else
+      @properties = Property.includes(:unit).all
+    end
 
     respond_to do |format|
       format.html
