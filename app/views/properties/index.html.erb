@@ -1,17 +1,37 @@
-<nav class="text-white bg-gray-900 border-gray-700 p-5">
+<nav id="header" class="text-white bg-gray-900 border-gray-700 p-5">
   <h1 class="text-3xl">Property Manager</h1>
+  <input type="text" id="search" placeholder="Search..." class="rounded-lg" data-controller="search" data-action="keyup->search#search" />
 </nav>
 
 <div id="properties" class="flex flex-col mx-5 space-y-5">
   <% @properties.each do |property| %>
     <div class="mt-5">
-      <h2 class="text-xl"><a href="<%= property_path(property.id) %>"><%= property.address %>, <%= property.city %>, <%= property.state %></a></h2>
+      <h2 class="text-xl">
+        <a href="<%= property_path(property.id) %>"><%= property.address %>, <%= property.city %>, <%= property.state %></a>
+      </h2>
       <% if property.unit.present? %>
-        <div class="mt-5 space-y-3">
-          <% property.unit.each do |unit| %>
-            <p>Unit <%= unit.id %> | Beds: <%= unit.bedroom_count %>, Baths: <%= unit.bathroom_count %>, Sq Ft: <%= unit.square_footage %>, Price: <%= number_to_currency(unit.rent_price, precision: 0) %></p>
-          <% end %>
-        </div>
+        <table class="table-fixed mt-5" style="text-align: center; width: 100%">
+          <thead>
+            <tr>
+              <th class="py-1">Unit</th>
+              <th class="py-1">Beds</th>
+              <th class="py-1">Baths</th>
+              <th class="py-1">Sq Ft</th>
+              <th class="py-1">Price</th>
+            </tr>
+          </tbody>
+          <tbody>
+            <% property.unit.each do |unit| %>
+              <tr>
+                <td class="py-1"><%= unit.id %></td>
+                <td class="py-1"><%= unit.bedroom_count %></td>
+                <td class="py-1"><%= unit.bathroom_count %></td>
+                <td class="py-1"><%= unit.square_footage %></td>
+                <td class="py-1"><%= number_to_currency(unit.rent_price, precision: 0) %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
       <% end %>
     </div>
     <hr>

@@ -1,0 +1,8 @@
+#header > h1 {
+  float: left;
+}
+
+#search {
+  color: black;
+  float: right;
+}
