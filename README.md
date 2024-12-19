@@ -1,5 +1,11 @@
 # RailsPropertyManager
 
+## Install Dependencies (Ruby & Gems)
+
+`[$]> rbenv install --skip-existing`
+
+`[$]> bundle install`
+
 ## Running Application
 
 `[$]> bin/dev`
