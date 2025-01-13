@@ -2,7 +2,15 @@
   float: left;
 }
 
-#search {
-  color: black;
+#filters {
   float: right;
+}
+
+#search,
+#minBedrooms {
+  color: black;
+}
+
+#minBedrooms {
+  width: 200px;
 }

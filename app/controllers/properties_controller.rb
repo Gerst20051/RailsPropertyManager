@@ -4,12 +4,25 @@ class PropertiesController < ApplicationController
 
   def index
     @search = params[:search]
+    @minBedrooms = params[:minBedrooms]
+
+    @properties = Property.joins(:unit)
 
     if @search.present?
       wildcard_search = "%#{@search}%"
-      @properties = Property.includes(:unit).where("address LIKE ? OR city LIKE ? OR state LIKE ?", wildcard_search, wildcard_search, wildcard_search)
-    else
-      @properties = Property.includes(:unit).all
+      @properties = @properties.where("address LIKE ? OR city LIKE ? OR state LIKE ?", wildcard_search, wildcard_search, wildcard_search)
+    end
+
+    if @minBedrooms.present?
+      @properties = @properties.where({
+        units: {
+          bedroom_count: @minBedrooms..
+        }
+      }).includes(:unit)
+    end
+
+    unless @search.present? or @minBedrooms.present?
+      @properties = @properties.all
     end
 
     respond_to do |format|
