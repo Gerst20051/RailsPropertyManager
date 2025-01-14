@@ -68,4 +68,4 @@ gem "acts_as_paranoid", "~> 0.10.3"
 
 gem "faker", "~> 3.5"
 
-gem "pry", "~> 0.15.0"
+gem "pry", "~> 0.15.2"
